@@ -15,14 +15,14 @@ filenames_nc
 
 #### download
 
-for(i in 1:n_urls){
-  repeat{
-    dw <- try(download.file(urls[i,1],
-                            paste0("data-raw/",filenames_nc[i]),
-                            method="wget",
-                            extra= c("--user=alan.panosso --password FMB675fmb675@")
-    ))
-    if(!(inherits(dw,"try-error")))
-      break
-  }
-}
+# for(i in 1:n_urls){
+#   repeat{
+#     dw <- try(download.file(urls[i,1],
+#                             paste0("data-raw/",filenames_nc[i]),
+#                             method="wget",
+#                             extra= c("--user=alan.panosso --password FMB675fmb675@")
+#     ))
+#     if(!(inherits(dw,"try-error")))
+#       break
+#   }
+# }
