@@ -3,4 +3,12 @@
 
 # curso-gp-01-aquisicao
 
+<https://disc.gsfc.nasa.gov/>
+
 ![](img/img-01.png)
+
+<https://eternallybored.org/misc/wget/>
+
+![](img/img-02.png)
+
+![](img/final-grupo.png)
