@@ -79,21 +79,66 @@ Uma vez criada a pastas de projetos, para criação de um novo projeto:
   1. Abra o RStudio.
   2. Clique em File > New Project.
   
+E a janela abaixo será apresenta.
+  
 ![](img/cria-proj-02.png)
+---
 
+  3. Selecione > New Directory.
+  4. Selecione > New Project.
 
 ![](img/cria-proj-03.png)
+---
+Após esses passos, será apresentado a janela para definirmos o nome do nosso projeto e a pasta onde ele será armazenado, portanto:
+
+  5. No campo *Directory name* digite o nome do projeto: `curso-gp-01-aquisicao`.
+
+No campo *Create project as subdirectory of* selecione a pasta previamente criada para armazenamento de todos os projetos: 
+  
+  6. Selecione > Browse... > `C:/ProjetosR`
 
 ![](img/cria-proj-04.png)
 
+  7. Selecione > Create Project
+  
+Após isso outra janela do RStudo será apresentada ao usuário, mas agora, no canto direito superior, podemos identificar o projeto no qual a interface está vínculado. Isso garante a reprodutibilidade do nosso projeto, uma vez todo o gerenciamento de referencias será relativo à pasta do projeto `curso-gp-01-aquisicao`.
+
+
+**OBSERVAÇÃO**  
+
+  > <span style="color: red;">NUNCA, JAMAIS, EM HIPÓTESE ALGUMA, INICIEM SEUS TRABALHOS SEM GARANTIR QUE A INTERFACE DO RSTUDIO ESTEJA VINCULADA A UM PROJETO ESPECÍFICO</span>.
+
 ![](img/cria-proj-05.png)
 
-![](img/cria-proj-06.png)
+Caso seja necessário você poderá abrir o projeto manualmente:
+  
+  8. Selecione > File > Open Project...> Selecione a pasta que contem o subdiretório do projeto, e abra o arquivo com o nome do projeto, como apresentado abaixo: 
 
+![](img/cria-proj-051.png)
+
+Agora precisamos criar subdiretórios para manipular os vários arquivos, scripts e relatórios, que serão utilizados e gerados durante o projeto: 
+  9. Para isso identifique a aba `File` presente em um dos paineis do RStudio.
+  10. Certifique-se que o diretório de trabalho é o `C: > ProjetosR > curso-gp-01-aquisicao`
+
+
+![](img/cria-proj-06.png)
+  11. Clique > New Folder e crie as pastas: 
+  
+    * R  
+    * data  
+    * data-raw  
+    * url  
+
+como apresentado abaixo.
 
 ![](img/cria-proj-07.png)
 
+Ao longo do desenvolvimento do projeto, novas pastas poderão ser adicionas a ele com o objetivo de organizar, ainda mais, os documentos e relatórios, algumas pastas poderão ser:
 
+    * img: para armazenamento de imagens;   
+    * script: armazenamento dos scripts referentes as análises;  
+    * Docs: para armazemanento de arquivos HTML, .docx ou .pdfs;
+    * Output: saídas gráficas e relatórios.   
 
 ## Criação da conta
 https://disc.gsfc.nasa.gov/
