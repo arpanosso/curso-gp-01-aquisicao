@@ -1,40 +1,42 @@
+# Carregnado minhas funções
 source("R/my-functions.R")
+
+# Buscando o caminho de todos os arquivos ncdf4 na pasta
 files_names <- list.files("data-raw/",
-                          pattern = "nc")
+                          pattern = "nc",
+                          full.names = TRUE)
 
-
-exm <- ncdf4::nc_open(
-  paste0("data-raw/",files_names[1])
-)
+# Abrindo um arquivo, e identificando o tipo deste (lista)
+exm <- ncdf4::nc_open(files_names[1])
 typeof(exm)
 
-for(i in 1:length(files_names)){
-  df <- ncdf4::nc_open(paste0("data-raw/",files_names[i]))
-  if(df$ndims!=0){
-    if(i==1){
-      xco2 <- my_ncdf4_extractor(df)
-    }else{
-      xco2 <- rbind(xco2,my_ncdf4_extractor(df)) # stack = empilhar as tabelas
-    }
-  }
-  ncdf4::nc_close(df)
-}
-dplyr::glimpse(xco2)
+# Utilizando a função previamente criada para extrair
+# as colunas do meu arquivo ncdf4
+my_ncdf4_extractor(files_names[1])
 
-xco2 <- xco2 |>
+# estraindo e empilhando os arquivos utilizando a função
+# map do pacote purrr
+xco2 <- purrr::map_df(files_names, my_ncdf4_extractor) |>
   dplyr::mutate(
     date = as.Date.POSIXct(time)
   )
-# install.packages("readr")
-readr::write_rds(xco2, "data/arquivo_xco2.rds")
+dplyr::glimpse(xco2)
 
+# Salvando o arquivo tratado na pasta data
+# readr::write_rds(xco2, "data/arquivo_xco2.rds")
+
+# Lendo o arquivo novamente
 xco2 <- readr::read_rds("data/arquivo_xco2.rds")
+dplyr::glimpse(xco2)
+
+# Gráfico de Dispersão de pontos ao longo do tempo
 xco2 |>
   dplyr::sample_n(1000) |>
   ggplot2::ggplot(ggplot2::aes(x=date,y=xco2)) +
   ggplot2::geom_point() +
   ggplot2::geom_line()
 
+# Histograma de xco2
 xco2 |>
   dplyr::sample_n(1000) |>
   ggplot2::ggplot(ggplot2::aes(x=xco2, y=..density..)) +
