@@ -1,29 +1,31 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# curso-gp-01-aquisicao
+# Cursos 01 - Aquisição de Dados do OCO-2\[3\] pelo GES DISC
 
-![](img/img-00.png) Arte conceitual do OCO2 Fonte:
+![](img/img-00.png) Arte conceitual do satélite Orbiting Carbon
+Observatory-2 (OCO-2) Fonte:
 <https://www.jpl.nasa.gov/images/pia18374-nasas-orbiting-carbon-observatory-oco-2-artist-concept>
 
 ## Motivação
 
 O GES DISC (Global Earth Science Data Information System) é um
 repositório de dados científicos de sensoriamento remoto da NASA. Ele
-contém dados de uma ampla variedade de sensores, incluindo satélites,
+contém dados de ampla variedade de sensores, incluindo satélites,
 aeronaves e estações terrestres. Os dados do GES DISC podem ser usados
 para uma variedade de aplicações, incluindo pesquisa científica,
 monitoramento ambiental e aplicações comerciais.
 
-Este curso visa fornecer aos alunos do grupo de pesquisa em Ciência de
+Este curso visa fornecer aos alunos do Grupo de Pesquisa em Ciência de
 Dados do Departamento de Ciências Exatas da FCAV-UNESP as habilidades
-necessárias para adquirir dados no GES DISC. O objetivo inicial é
+necessárias para adquirir dados via GES DISC. O objetivo inicial é
 ensinar ao aluno como pesquisar dados, como baixar dados e como preparar
 os dados GES DISC para posterior uso em suas pesquisas.
 
 Além, disso, devido ao fato desse curso ser introdutório, serão
-abordados temas como criação de projetos no RStudio , reprodutibilidade
-e endereçamento.
+abordados temas como a criação de projetos no RStudio, a
+reprodutibilidade das análises e as formas de endereçamento dos
+arquivos.
 
 ## Criação do Projeto
 
@@ -33,57 +35,104 @@ estruture seus dados, código e relatórios de forma organizada e
 eficiente. Isso pode ajudar o aluno a economizar tempo e esforço, e
 também pode tornar seu trabalho mais reprodutível.
 
-### Reproducibilidade
+### Reprodutibilidade
 
 A reprodutibilidade é a capacidade de repetir os resultados de um
 experimento ou análise. É uma prática importante na ciência e em outras
-áreas, pois garante que os resultados sejam confiáveis e sejam capazes
-de ser verificados por outros pesquisadores.
+áreas, pois garante que os resultados sejam confiáveis e passíveis de
+verificaçãp por outros pesquisadores.
 
-A criação de projetos no RStudio pode ajudar a melhorar a
-reprodutibilidade de seu trabalho. Isso ocorre porque os projetos
-permitem que você armazene todos os dados e código necessários para
-executar uma análise em um único local. Isso torna mais fácil
-compartilhar seu trabalho com outros e garantir que eles possam
-reproduzir seus resultados.
+NEsse contexto, a criação de projetos no RStudio ajuda a melhorar a
+reprodutibilidade do trabalho em desenvolvimento. Isso ocorre porque os
+projetos permitem que você armazene todos os dados e código necessários
+para executar uma análise em um único local. Isso torna mais fácil
+compartilhar nosso trabalho com outros pesquisadores e colaboradores,
+garantindo que esses possam reproduzir seus as análises e obter os
+resultados.
 
-### Endereçamento relativo
+### Formas de Endereçamento (Relativo e Absoluto)
 
-O endereçamento relativo é uma técnica que permite que você refira a
-arquivos e pastas em um projeto usando caminhos relativos. Isso pode
-tornar seu código mais conciso e fácil de manter.
+No contexto de programação, o endereçamento é a maneira de identificar
+um local na memória. Isso pode ser feito usando um **endereço absoluto**
+ou um **endereço relativo**.
+
+Um \*\*endereço absoluto\* é um número que identifica um local
+específico na memória. Por exemplo, o endereço absoluto da variável `x`
+pode ser `0x12345678`.
+
+Um **endereço relativo** é um número que identifica um local na memória
+em relação a um ponto de referência. Por exemplo, o endereço relativo do
+elemento `0` de um vetor `v` pode ser `0`.
+
+No contexto do RStudio, o endereçamento é usado para identificar
+arquivos e pastas em um projeto. O endereçamento relativo é a maneira
+mais comum de fazer isso. Tal prática tornar o código mais conciso e
+fácil de manter e de ler, sendo uma das primeiras recomendações para o
+estudante que inicia sua jornada nessa área.
 
 A criação de projetos no RStudio torna o endereçamento relativo mais
 fácil. Isso ocorre porque os projetos fornecem um contexto para os
-caminhos de arquivos e pastas. Por exemplo, oo seu projeto, você pode
-criar uma pasta chamada data para armazenar seus dados. Você pode então
-ler os dados da pasta data usando o endereçamento relativo:
+caminhos de arquivos e pastas. Por exemplo, no projeto denominado
+`MeuProjeto`, podemos criar uma pasta chamada `data` para armazenar os
+dados. Então, poderemos ler os dados da pasta `data` usando o
+endereçamento relativo:
 
 ``` r
 # Criar um objeto para armazenar os dados
-dados <- read.csv("data/dados.csv")
+dados <- readr::read_rds("data/dados.rds")
 
 # Visualizar os dados
-head(dados)
+View(dados)
 ```
 
-O código acima criará um objeto chamado `dados` que contém os dados da
-pasta data. O caminho relativo `"data/dados.csv"` refere-se ao arquivo
-`dados.csv` na pasta `data` dentro do projeto.
+O código acima criará um objeto no R chamado `dados` que contém os dados
+da pasta `data`. O **caminho relativo** `"data/dados.rds"` refere-se ao
+arquivo `dados.rds` na pasta `data` dentro do projeto previamento
+estruturado (denominado `MeuProjeto`). Observe que raiz, início do
+caminho, sempre será a pasta do projeto.
 
-O caminho absoluto para o arquivo `dados.csv` seria diferente,
+O **caminho absoluto** para o arquivo `dados.rds` seria diferente,
 dependendo do local do projeto no seu computador. Por exemplo, se o
 projeto estiver localizado na pasta `C:\Meus Documentos\MeuProjeto`, o
-caminho absoluto para o arquivo dados.csv seria
-`C:\Meus Documentos\MeuProjeto\data\dados.csv`.
+caminho absoluto para o arquivo `dados.rds` seria
+`"C:\Meus Documentos\MeuProjeto\data\dados.csv"`. Caminho esse mais
+difícil de ser indentificado, uma vez que cada usuário poderá criar a
+pasta do projeto em diferentes diretórios de seus respectivos
+computadores.
 
 Assim, o uso de endereçamento relativo tem várias vantagens, incluindo:
 
-- Torna o código mais conciso e fácil de entender.
-- Torna o código mais portátil, pois não depende do local do projeto no
-  computador.
-- Torna o código mais reprodutível, pois os caminhos relativos são
-  consistentes entre diferentes computadores.
+- Tornar o código mais conciso e fácil entendimento.
+- Tornar o código mais portátil, pois não dependerá do local do projeto
+  no computador.
+- Tornar o código mais reprodutível, pois os caminhos relativos são
+  consistentes entre diferentes computadores (tendo como origem a pasta
+  do projeto criado).
+
+### Criação do Projeto no RStudio
+
+Previamente à criação do projeto, devemos criar uma pasta que armazenará
+todos os vários projetos desenvolvidos pelos estudantes ao longo de suas
+atividades acadêmicas. Por exemplo, vamos criar um diretório chamado
+`ProjetosR` no diretório `C:/`
+
+![](img/cria-proj-01.png) Uma vez criada a pastas de projetos, para
+criação de um novo projeto:
+
+1.  Abra o RStudio.
+2.  Clique em File \> New Project.
+
+![](img/cria-proj-02.png)
+
+![](img/cria-proj-03.png)
+
+![](img/cria-proj-04.png)
+
+![](img/cria-proj-05.png)
+
+![](img/cria-proj-06.png)
+
+![](img/cria-proj-07.png)
 
 ## Criação da conta
 
