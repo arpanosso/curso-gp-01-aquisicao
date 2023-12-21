@@ -22,7 +22,8 @@ ensinar ao aluno como pesquisar dados, como baixar dados e como preparar
 os dados GES DISC para posterior uso em suas pesquisas.
 
 Além, disso, devido ao fato desse curso ser introdutório, serão
-abordados temas como criação de projetos no RStudio.
+abordados temas como criação de projetos no RStudio , reprodutibilidade
+e endereçamento.
 
 ## Criação do Projeto
 

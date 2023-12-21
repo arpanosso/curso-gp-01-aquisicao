@@ -26,7 +26,7 @@ O GES DISC (Global Earth Science Data Information System) é um repositório de 
 
 Este curso visa fornecer aos alunos do grupo de pesquisa em Ciência de Dados do Departamento de Ciências Exatas da FCAV-UNESP as habilidades necessárias para adquirir dados no GES DISC. O objetivo inicial é ensinar ao aluno como pesquisar dados, como baixar dados e como preparar os dados GES DISC para posterior uso em suas pesquisas.
 
-Além, disso, devido ao fato desse curso ser introdutório, serão abordados temas como criação de projetos no RStudio.
+Além, disso, devido ao fato desse curso ser introdutório, serão abordados temas como criação de projetos no RStudio , reprodutibilidade e endereçamento.
 
 ## Criação do Projeto
 
