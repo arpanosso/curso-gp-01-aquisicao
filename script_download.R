@@ -13,42 +13,51 @@ urls <- read.table(url_filename) |>
 # Extraindo o número de linhas do arquivo, número de urls
 n_urls <- nrow(urls)
 
+
 # criando a função para o download
-my_ncdf4_download <- function(url_unique){
-  n_split <- length(
-    stringr::str_split(url_unique,
-                       "/",
-                       simplify=TRUE))
-  filenames_nc <- stringr::str_split(url_unique,
-                                     "/",
-                                     simplify = TRUE)[,n_split]
-  repeat{
-    dw <- try(download.file(url_unique,
-                            paste0("data-raw/",filenames_nc),
-                            method="wget",
-                            extra= c("--user=seu.nome --password suasenha")
-    ))
-    if(!(inherits(dw,"try-error")))
-      break
+
+my_ncdf4_download <- function(url_unique, user="input your user",password="input your password"){
+  if(is.character(user)==TRUE & is.character(password)==TRUE){
+
+    n_split <- length(
+      stringr::str_split(url_unique,
+                         "/",
+                         simplify=TRUE))
+    filenames_nc <- stringr::str_split(url_unique,
+                                       "/",
+                                       simplify = TRUE)[,n_split]
+    repeat{
+      dw <- try(download.file(url_unique,
+                              paste0("data-raw/",filenames_nc),
+                              method="wget",
+                              extra= c(paste0("--user=",user," --password ",password))
+      ))
+      if(!(inherits(dw,"try-error")))
+        break
+    }
+  }else{
+    print("seu usuário ou senha não é uma string")
   }
 }
-my_ncdf4_download(urls[1,1])
+
+my_ncdf4_download(urls[1,1],user="input your user",password = "input your password")
 
 # Vamos testar com 3 arquivos e observar o tempo de
 # demora
 tictoc::tic()
-purrr::map(urls[1:3,1],my_ncdf4_download)
+purrr::pmap(list(urls[1:3,1],"input your user","your password"),my_ncdf4_download)
 tictoc::toc()
+
 
 # Usando multisession
 # Vamos testar com 3 arquivos e observar o tempo de
 # demora
 future::plan("multisession")
 tictoc::tic()
-furrr::future_map(urls[1:3,1],my_ncdf4_download)
+furrr::future_pmap(list(urls[1:3,1],"input your user","your password"),my_ncdf4_download)
 tictoc::toc()
 
 # Vamos fazer o download de todos
 tictoc::tic()
-furrr::future_map(urls[,1],my_ncdf4_download)
+furrr::future_pmap(list(urls[,1],"input your user","your password"),my_ncdf4_download)
 tictoc::toc()
