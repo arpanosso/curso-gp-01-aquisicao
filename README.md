@@ -3,6 +3,10 @@
 
 # Cursos 01 - Aquisição de Dados do OCO-2\[3\] pelo GES DISC
 
+## Ministrante: Eng. Agrônomo Luis Miguel da Costa
+
+## Data: 20/12/2023
+
 ![](img/img-00.png) Arte conceitual do satélite Orbiting Carbon
 Observatory-2 (OCO-2) Fonte:
 <https://www.jpl.nasa.gov/images/pia18374-nasas-orbiting-carbon-observatory-oco-2-artist-concept>
@@ -208,9 +212,9 @@ relatórios, algumas pastas poderão ser:
 
 ## Escolha da Base (Nível-2)
 
-## Download dos dados
+## Download dos dados (links)
 
-### Coteúdo referente ao arquivo `script_download.R`.
+### Conteúdo referente ao arquivo `script_download.R`.
 
 ``` r
 url_filename <- dir("url/",pattern = ".txt") # nome do arquivo txt
@@ -326,5 +330,9 @@ xco2 |>
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+
+# Agradecimentos
+
+A todos os participantes e inegrantes do grupo de pesquisa.
 
 ![](img/final-grupo.png)
