@@ -23,7 +23,7 @@ xco2 <- purrr::map_df(files_names, my_ncdf4_extractor) |>
 dplyr::glimpse(xco2)
 
 # Salvando o arquivo tratado na pasta data
-# readr::write_rds(xco2, "data/arquivo_xco2.rds")
+readr::write_rds(xco2, "data/arquivo_xco2.rds")
 
 # Lendo o arquivo novamente
 xco2 <- readr::read_rds("data/arquivo_xco2.rds")
