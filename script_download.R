@@ -17,8 +17,8 @@ n_urls <- nrow(urls)
 
 
 my_ncdf4_download(urls[1,1],
-                  user="alan.panosso",
-                  password = "FMB675fmb675@")
+                  user="",
+                  password = "")
 
 # Vamos testar com 3 arquivos e observar o tempo de
 # demora
