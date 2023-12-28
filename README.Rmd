@@ -142,17 +142,92 @@ Ao longo do desenvolvimento do projeto, novas pastas poderão ser adicionas a el
     * Docs: para armazemanento de arquivos HTML, .docx ou .pdfs;
     * Output: saídas gráficas e relatórios.   
 
-## Criação da conta
-https://disc.gsfc.nasa.gov/
+## Criação da conta no GES DISC
+
+Para a criação da conta no site do GES DISC acesse o seguinte link: https://disc.gsfc.nasa.gov/ você deverá ser direcionado para a seguinte pagina. Ao ser direcionado para esta página, clique na aba login para ser redirecionado (como indicado em amarelo) 
 
 ![](img/img-01.png)
 
-## configura do Wget
-https://eternallybored.org/misc/wget/
+Agora você foi redirecionado para a pagina de login, estando nesta pagina você deve clicar em `Register` para prosseguir. 
+
+![](img/img-01-1.png)
+
+Agora você deve ter sido redirecionado para a pagina de cadastro (imagem abaixo), preencha todas as informações necessárias e pronto você está regristrado no servidor!
+
+
+![](img/img-01-2.png)
+
+Depois de ter feito seu cadastro no servidor, agora precisamos liberar algumas licenças e autorizações para poder prosseguir com o `download`. Para isto faça seu `login` e após ter realizado ele, primeiramente (1) clique no seu nome e entre no seu `Earthdata Profile`. Em seguinda, já no seu perfil, clique em `Applications > Authorized Apps` (2). Por fim, primeiro clique em `APPROVE MORE APPLICATIONS` e busque as autorizações destacadas (3), **repita este passo para cada autorização**.
+
+
+![](img/img-01-3.png)
+
+## Configuração do Wget
+
+**Wget** é uma ferramenta criada pelo GNU Project. Você pode usá-la para recuperar conteúdos e arquivos de vários servidores na internet. O nome vem de uma combinação de World Wide Web e a palavra get. Ela suporta downloads via FTP, SFTP, HTML e HTTPS. Para realizar o download desta ferramenta entre no seguinte endereço: https://eternallybored.org/misc/wget/. 
+
+Note que existem diversas versões para diferentes sistemas operacionais. Portanto, primeiro devemos identificar qual sistema operacional é o seu. 
 
 ![](img/img-02.png)
 
+
+Para isto, vá na barra de pesquisa do seu computador e digite `sistema` e clique na primeira opção que aparecer. Você deve ter sido redirecionado para uma pagina similar a esta abaixo, identifique seu sistema operacional como o exemplo abaixo. 
+
+
+![](img/img-02-1.png)
+Agora que identificamos, volte para o endereço web e baixe o **primeiro** arquivo `.EXE` compativel com o seu windows. No meu caso seria a versão `1.21.4` em `64x`.
+
+Feito o download vá até o diretorio onde o arquivo foi salvo e aperte as teclas `Ctrl + X` para recortar o arquivo desta pasta. Agora este passo é muito importante e perigoso, por isso, **cuidado**. Primeiro entre na pasta `C:`, em seguida na pasta `Windowns` e por fim na pasta `System32`, aperte `Ctrl + C` e copie o arquivo `wget.exe` para esta paste e depois feche esta pasta.
+
 ## Escolha da Base (Nível-2)
+
+Os arquivos das missões OCO-2 e 3 são arquivos diários e globais do tipo `netCDF`, para podermos fazer a requisição dos dados, devemos voltar no site do [GES DISC](https://disc.gsfc.nasa.gov/) e buscar por OCO-2 (ou OCO-3).
+
+![](img/img-03.png)
+
+Após buscar pela missão desejada (OCO-2 ou 3), você será direcionado para a seguinte pagina (imagem abaixo). Nesta pagina você deve clicar no arquivo `OCO-2(ou 3) Level 2 bias-corrected XCO2... (OCO-2_L2_Lite_FP.vr)`, geralmente é o primeiro arquivo, pois é o mais acessado e o mais recente. 
+
+
+![](img/img-03-1.png)
+
+Em seguida você será redirecionado para a seguinte pagina e você deverá clicar em `get data`. 
+
+
+![](img/img-03-2.png)
+
+
+Deverá aparece a seguinte janela após clicar em `get data`.
+
+
+![](img/img-03-3.png)
+
+Nesta janela, primeiro vamos refinar a periodo de interesse como na imagem abaixo, lembrando que este é um exemplo e você pode alterar a serie temporal trabaçhada conforme o que você deseja pesquisar! (lembrando que a data está em formato americano `ano-mes-dia`).
+
+
+![](img/img-03-4.png)
+
+
+Em seguida iremos refinar a região de interesse da mesma forma que fizemos para a série temporal. Para isto clique em `draw rectangle` como indicado na seta e depois desenhe o retangulo na área desejada.
+
+
+![](img/img-03-5.png)
+
+Agora iremos clicar em `get data`.
+
+![](img/img-03-6.png)
+
+Após clicar em `get data` outra janela irá aparecer, agora você deve esperar alguns instante até a lista de links aparecer. Quando a lista aparecer, leve o cursor do mouse até `Download Intructions` e depois clique em `Download the list of links` como indicado a seguir. **IMPORTANTE, FAÇA O DOWNLOAD DESTE ARQUIVO NA PASTA `url` QUE FOI CRIADA NESTE PROJETO**.
+
+
+![](img/img-03-7.png)
+
+
+Por fim, confira na pasta `url/` se o arquivo `.txt` está salvo nela, como no exemplo abaixo:
+
+![](img/img-03-8.png)
+
+
+Agora podemos prosseguir para o download!!!
 
 ## Download dos dados (links)
 
@@ -189,7 +264,7 @@ for(i in 1:n_urls){
 }
 ```
 
-
+**Nesta etapa pode ocorrer algum erro por conta da má instalação do wget, pela falta de autorização na plataforma GES DISC, ou algum outro problema não listado aqui, caso o problema não seja o wget e autorização entre em contato com [Luis](lm.costa@unesp.br) ou [Alan](alan.panosso@unesp.br)** 
 
 ## Extração dos dados
 
