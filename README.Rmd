@@ -348,6 +348,6 @@ xco2 |>
 
 # Agradecimentos
 
-A todos os participantes e inegrantes do grupo de pesquisa.
+A todos os participantes e integrantes do grupo de pesquisa. Além disso, agradecemos o apoio da FAPESP através do proc.: [19/25812-4](https://bv.fapesp.br/pt/bolsas/190947/variabilidade-espaco-temporal-do-co2-atmosferico-no-sudeste-brasileiro-uma-perspectiva-com-sensoriam/)
 
 ![](img/final-grupo.png)
